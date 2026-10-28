@@ -8,6 +8,7 @@
 ```bash
 npm install
 npm run dev
+npm test   # 챗봇 로직 시나리오 테스트 (명세서 §10)
 ```
 
 ## 구조
@@ -19,4 +20,6 @@ npm run dev
 | `src/components/` | 헤더·하단 탭바, 상품 카드, 무시니 카드 |
 | `src/types/` | 공유 타입 (`Product`, `SearchConditions`, `ChatMessage` …) |
 | `src/data/products.ts` | 샘플 상품 45개 |
+| `src/data/synonyms.ts`, `fashionTerms.ts` | 일상 표현 → 검색 조건 사전, 패션 용어 설명 |
+| `src/services/` | 챗봇 로직: `parseQuery` → `applyPatch` → `recommendProducts` → `generateResponse`, 묶음은 `chatEngine.respond()` |
 | `src/styles/style.css` | 화면 디자인 (A) / `app.css`: React로 옮기며 추가한 스타일 |

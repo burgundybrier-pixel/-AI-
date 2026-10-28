@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import type { AssistantMessage, SearchConditions } from '../types/chat';
 import { getProductById } from '../data/products';
-import { respond, respondToPatch, type ChatTurn } from './chatEngine';
+import { respond, respondToImage, respondToPatch, startWithProduct, type ChatTurn } from './chatEngine';
 import { parseQuery } from './parseQuery';
 
 /** 대화를 차례로 이어 가며 마지막 턴을 돌려준다 */
@@ -95,6 +95,24 @@ describe('명세서 §10 인수 테스트', () => {
     expect(turn.message.relaxOptions.length).toBeGreaterThan(0);
     const after = respondToPatch(turn.message.relaxOptions[0].patch, turn.conditions);
     expect(after.message.kind).toBe('recommend');
+  });
+});
+
+describe('사진 첨부 (T06) · 상세에서 시작 (T10)', () => {
+  it('T06 샘플 사진 → 사진 속 옷과 비슷한 상품', () => {
+    const turn = respondToImage('sample-ma1', {});
+    expect(turn.conditions.baseProductId).toBe('7334751');
+    expect(itemsOf(turn.message).length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('T06 일반 사진 → 분석하는 척하지 않고 특징을 물어봄', () => {
+    expect(respondToImage(undefined, {}).message.kind).toBe('unsupported');
+  });
+
+  it('T10 상세에서 AI 버튼 → 그 상품이 기준 상품', () => {
+    const turn = startWithProduct('7420291', {})!;
+    expect(turn.conditions.baseProductId).toBe('7420291');
+    expect(turn.message.text).toContain('캐시미어 울 싱글 롱 코트');
   });
 });
 

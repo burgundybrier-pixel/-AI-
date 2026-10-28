@@ -4,6 +4,7 @@ import type { Product } from '../types/product';
 import type { AssistantMessage, SearchConditions } from '../types/chat';
 import { products as allProducts, getProductById } from '../data/products';
 import { FASHION_TERMS } from '../data/fashionTerms';
+import { getSamplePhoto } from '../data/samplePhotos';
 import { parseQuery } from './parseQuery';
 import { applyPatch } from './applyPatch';
 import { recommendProducts, recommendSimilar, relaxOptions } from './recommendProducts';
@@ -56,6 +57,25 @@ export function respond(text: string, current: SearchConditions, products: Produ
       return { conditions, message: reply.recommend(result) };
     }
   }
+}
+
+/** 사진 첨부 (시나리오 C, T06). 샘플 사진만 분석 결과를 연결하고, 나머지는 특징을 물어본다 */
+export function respondToImage(sampleId: string | undefined, current: SearchConditions, products: Product[] = allProducts): ChatTurn {
+  const sample = sampleId ? getSamplePhoto(sampleId) : undefined;
+  const product = sample ? getProductById(sample.productId) : undefined;
+  if (!sample || !product) return { conditions: current, message: reply.unsupportedImage() };
+
+  const conditions = applyPatch(current, { set: { baseProductId: product.id } });
+  const result = recommendSimilar(products, product, conditions);
+  const termName = FASHION_TERMS[product.subCategory]?.term ?? product.subCategory;
+  return { conditions, message: reply.photo(termName, sample.features, result) };
+}
+
+/** 상세 화면에서 "AI 추천"으로 들어왔을 때 (T10). 그 상품을 기준 상품으로 */
+export function startWithProduct(productId: string, current: SearchConditions): ChatTurn | null {
+  const product = getProductById(productId);
+  if (!product) return null;
+  return { conditions: applyPatch(current, { set: { baseProductId: product.id } }), message: reply.greeting(product) };
 }
 
 /** 조건 완화 버튼을 눌렀을 때. 문장 없이 패치만 적용해 다시 추천한다 */

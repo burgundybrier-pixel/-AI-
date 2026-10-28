@@ -30,7 +30,7 @@ export function ProductDetailPage() {
         <div className="detail-photo">
           <img src={p.imageUrl} alt={p.name} />
           {/* 원본의 "AI 추천 · 비슷한 상품" 자리. 이 상품을 기준으로 챗봇을 연다 (T10) */}
-          <button className="ai-bubble" onClick={() => navigate('/ai')}>
+          <button className="ai-bubble" onClick={() => navigate(`/ai?product=${p.id}`)}>
             <Icon name="spark" size={18} /> AI 추천 <small>비슷한 상품</small>
           </button>
           <span>1 / 1 ⛶</span>

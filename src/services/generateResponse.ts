@@ -96,6 +96,14 @@ export const reply = {
     };
   },
 
+  photo(termName: string, features: string, result: RecommendResult): AssistantMessage {
+    return {
+      ...base(`사진 속 옷은 '${termName}' 같아요 (${features}). 비슷한 옷을 ${result.items.length}개 골라 봤어요.`),
+      kind: 'recommend',
+      result,
+    };
+  },
+
   unsupportedImage(): AssistantMessage {
     return {
       ...base('사진을 받았어요! 아직 사진 속 옷을 직접 알아보지는 못해요. 어떤 종류·색·느낌의 옷인지 말로 알려 주면 비슷한 걸 찾아볼게요.'),

@@ -64,7 +64,7 @@ function SearchResults({ q }: { q: string }) {
         ) : (
           <div className="empty-result">
             <p><strong>검색 결과가 없습니다.</strong><br />다른 검색어를 입력하거나, 무시니에게 문장으로 물어보세요.</p>
-            <MusiniCard />
+            <MusiniCard query={q} />
           </div>
         )}
       </main>

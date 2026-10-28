@@ -3,6 +3,8 @@
 
 무신사 앱을 참고한 학교 해커톤용 비공식 데모 (React + Vite + TypeScript, 모바일 우선).
 
+배포: https://musinsa-ai-steel.vercel.app (Vercel, PC에서 `npx vercel deploy --prod`로 올림)
+
 ## 실행
 
 ```bash

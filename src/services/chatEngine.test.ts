@@ -161,6 +161,28 @@ describe('명세서 §11 발표 시연 흐름', () => {
   });
 });
 
+describe('랭킹 (S03)', () => {
+  it('인기순: 인기도가 높은 순, 같은 대분류·스타일만', async () => {
+    const { rankProducts } = await import('./rankProducts');
+    const { products } = await import('../data/products');
+    const list = rankProducts(products, { category: 'outer', style: 'street', sort: 'popular' });
+    expect(list.length).toBeGreaterThan(0);
+    for (const p of list) {
+      expect(p.category).toBe('outer');
+      expect(p.styleTags).toContain('street');
+    }
+    for (let i = 1; i < list.length; i++) expect(list[i - 1].popularityScore).toBeGreaterThanOrEqual(list[i].popularityScore);
+  });
+
+  it('낮은 가격순', async () => {
+    const { rankProducts } = await import('./rankProducts');
+    const { products } = await import('../data/products');
+    const list = rankProducts(products, { sort: 'lowPrice' });
+    expect(list).toHaveLength(products.length);
+    for (let i = 1; i < list.length; i++) expect(list[i - 1].price).toBeLessThanOrEqual(list[i].price);
+  });
+});
+
 describe('조건 패치', () => {
   it('"네이비도" → 색을 교체하지 않고 더한다', () => {
     expect(chat('검은색 외투', '네이비도 같이 보여줘').conditions.colors).toEqual(['BLACK', 'NAVY']);

@@ -4,8 +4,8 @@ import { Icon } from '../common/Icon';
 import { useWishlist } from '../../hooks/useWishlist';
 import { discountRate, formatPrice } from '../../utils/format';
 
-/** 홈·검색·AI 추천이 모두 쓰는 상품 카드 (명세서 §6.4) */
-export function ProductCard({ product: p }: { product: Product }) {
+/** 홈·검색·랭킹·찜·AI 추천이 모두 쓰는 상품 카드 (명세서 §6.4). rank가 있으면 이미지 왼쪽 위에 순위 */
+export function ProductCard({ product: p, rank }: { product: Product; rank?: number }) {
   const navigate = useNavigate();
   const { isLiked, toggle } = useWishlist();
   const rate = discountRate(p);
@@ -14,6 +14,7 @@ export function ProductCard({ product: p }: { product: Product }) {
     <article className="product-card" onClick={() => navigate(`/product/${p.id}`)}>
       <div className="image-wrap">
         <img src={p.imageUrl} alt={p.name} loading="lazy" />
+        {rank !== undefined && <span className="rank-badge">{rank}</span>}
         {p.promoTag && <span className="promo">{p.promoTag}</span>}
         <button className={`heart ${isLiked(p.id) ? 'on' : ''}`} aria-label="찜"
           onClick={(e) => { e.stopPropagation(); toggle(p.id); }}>

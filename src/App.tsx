@@ -4,6 +4,8 @@ import { HomePage } from './pages/HomePage';
 import { SearchPage } from './pages/SearchPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ChatPage } from './pages/ChatPage';
+import { RankingPage } from './pages/RankingPage';
+import { WishlistPage } from './pages/WishlistPage';
 
 /** 화면이 바뀌면 맨 위부터 보이게 (A 코드의 window.scrollTo(0,0)) */
 function ScrollToTop() {
@@ -12,7 +14,7 @@ function ScrollToTop() {
   return null;
 }
 
-// 경로는 명세서 §6.3. 랭킹·찜 목록 화면은 아직 없음
+// 경로는 명세서 §6.3
 export function App() {
   return (
     <div className="phone-shell">
@@ -21,6 +23,8 @@ export function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/ranking" element={<RankingPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/ai" element={<ChatPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

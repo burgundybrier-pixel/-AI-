@@ -10,9 +10,11 @@ interface HeaderProps {
   query?: string | null;
   /** true면 검색창이 실제 입력칸이 된다 (검색 화면). false면 누르면 검색 화면으로 이동하는 버튼 */
   editable?: boolean;
+  /** 검색창 대신 화면 제목을 보여 줄 때 (찜 목록) */
+  title?: string;
 }
 
-export function Header({ back = false, dark = false, query = '', editable = false }: HeaderProps) {
+export function Header({ back = false, dark = false, query = '', editable = false, title }: HeaderProps) {
   const navigate = useNavigate();
   const goBack = useGoBack();
   const [text, setText] = useState(query ?? '');
@@ -32,7 +34,8 @@ export function Header({ back = false, dark = false, query = '', editable = fals
           <button className="wordmark" onClick={() => navigate('/')}>MUSINSA</button>
         )}
 
-        {query !== null && (editable ? (
+        {title && <h1 className="page-title">{title}</h1>}
+        {!title && query !== null && (editable ? (
           <form className="search-box" onSubmit={submit} role="search">
             <input value={text} onChange={(e) => setText(e.target.value)} placeholder="검색어를 입력하세요" enterKeyHint="search" />
             <button type="submit" aria-label="검색"><Icon name="search" size={29} /></button>

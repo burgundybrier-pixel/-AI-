@@ -12,12 +12,15 @@ const ITEMS: [NavId, IconName | '⌕' | '(S)', string][] = [
   ['my', 'user', '마이'],
 ];
 
+/** 실제로 이동하는 탭만 경로가 있다 */
+const ROUTES: Partial<Record<NavId, string>> = { home: '/', likes: '/wishlist' };
+
 export function BottomNav({ active = 'home' }: { active?: NavId }) {
   const navigate = useNavigate();
   return (
     <nav className="bottom-nav">
       {ITEMS.map(([id, icon, label]) => (
-        <button key={id} className={active === id ? 'selected' : ''} onClick={id === 'home' ? () => navigate('/') : undefined}>
+        <button key={id} className={active === id ? 'selected' : ''} onClick={ROUTES[id] ? () => navigate(ROUTES[id]!) : undefined}>
           {icon === '⌕' || icon === '(S)' ? <span className="text-icon">{icon}</span> : <Icon name={icon} size={31} />}
           <span>{label}</span>
         </button>

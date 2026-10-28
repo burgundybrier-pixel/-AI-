@@ -55,6 +55,36 @@ form.search-box button {
   color: var(--muted);
 }
 
+/* 랭킹 (S03) */
+.home-tabs b { cursor: pointer; }
+.ranking-tabs span { cursor: pointer; }
+.rank-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 26px;
+  padding: 4px 6px;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+.filter-row.style-row { overflow-x: auto; scrollbar-width: none; }
+.filter-row.style-row::-webkit-scrollbar { display: none; }
+.filter-row.style-row button { flex: 0 0 auto; border: 1px solid #ddd; }
+.filter-row.style-row button.on { border: 2px solid #111; font-weight: 700; }
+.sort-toggle { display: flex; gap: 10px; }
+.sort-toggle button { color: #999; font-size: 14px; }
+.sort-toggle button.on { color: #111; font-weight: 700; }
+
+/* 찜 목록 (S06) */
+.heart.on svg { fill: currentColor; } /* 찜한 하트는 속까지 채운다 */
+.page-title { flex: 1; margin: 0; font-size: 19px; text-align: center; }
+.empty-actions { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+.empty-actions button { padding: 11px 14px; border-radius: 8px; border: 1px solid #ddd; font-weight: 700; font-size: 14px; }
+.empty-actions button.primary { background: #111; color: #fff; border-color: #111; }
+
 .chat-stub {
   padding: 60px 24px;
   text-align: center;

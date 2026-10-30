@@ -212,7 +212,11 @@ describe('조건 패치', () => {
     expect(m.text).toContain('무시니');
   });
 
-  it('"빵빵한 겨울 점퍼" → 일반 검색은 0건이지만 챗봇은 패딩으로 이해', () => {
-    expect(chat('빵빵한 겨울 점퍼').conditions).toMatchObject({ subCategory: '패딩', seasons: ['winter'] });
+  it('"빵빵한 겨울 점퍼" → 일반 검색은 0건이지만 챗봇은 패딩으로 이해, 얇은 경량패딩은 뺀다', () => {
+    const t = chat('빵빵한 겨울 점퍼');
+    expect(t.conditions).toMatchObject({ subCategory: '패딩', seasons: ['winter'], exclude: { subCategories: ['경량패딩'] } });
+    const items = itemsOf(t.message);
+    expect(items.length).toBeGreaterThanOrEqual(3);
+    for (const p of items) expect(p.subCategory).not.toBe('경량패딩');
   });
 });

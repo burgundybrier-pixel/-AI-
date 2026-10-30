@@ -5,7 +5,7 @@
 import type { Color, Product } from '../types/product';
 import type { ConditionPatch, ExcludeConditions, ListConditionKey, SearchConditions, SortKey } from '../types/chat';
 import {
-  COLOR_TERMS, FIT_TERMS, ITEM_TERMS, NOT_THICK_WORDS, OCCASION_TERMS, SEASON_TERMS, STYLE_TERMS, THICK_SUBCATEGORIES,
+  COLOR_TERMS, FIT_TERMS, ITEM_TERMS, NOT_THICK_WORDS, OCCASION_TERMS, SEASON_TERMS, STYLE_TERMS, THICK_SUBCATEGORIES, THICK_WORDS,
   type ItemTerm,
 } from '../data/synonyms';
 import { getProductById } from '../data/products';
@@ -147,6 +147,8 @@ export function parseQuery(raw: string, ctx: ParseContext): ParseResult {
   }
   if (NOT_THICK_WORDS.some((w) => s.has(new RegExp(w))) && !s.has(/경량|얇은 패딩|가벼운 패딩/)) {
     (exclude.subCategories ??= []).push(...THICK_SUBCATEGORIES);
+  } else if (THICK_WORDS.some((w) => s.has(new RegExp(w)))) {
+    (exclude.subCategories ??= []).push('경량패딩');
   }
 
   // 5. 옷 종류: 세부 종류가 있는 표현을 우선

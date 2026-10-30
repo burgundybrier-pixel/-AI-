@@ -18,6 +18,7 @@ npm test   # 챗봇 로직 시나리오 테스트 (명세서 §10)
 | 경로 | 내용 |
 |---|---|
 | `plan.md` | 원본 해부 |
+| `demo-scenario.md` | 발표 시연 시나리오 |
 | `src/pages/` | 홈, 검색(`/search`, `/search?q=`), 랭킹(`/ranking`), 상품 상세(`/product/:id`), 찜 목록(`/wishlist`), AI 챗봇(`/ai`) |
 | `src/components/` | 헤더·하단 탭바, 상품 카드, 무시니 카드 |
 | `src/types/` | 공유 타입 (`Product`, `SearchConditions`, `ChatMessage` …) |

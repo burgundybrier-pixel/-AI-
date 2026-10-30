@@ -92,6 +92,9 @@ export const FIT_TERMS: [Fit, string[]][] = [
   ['regular', ['레귤러', '정핏', '기본핏']],
 ];
 
+/** "빵빵한" 같은 표현 → 얇은 경량패딩은 뺀다 */
+export const THICK_WORDS = ['빵빵한', '두꺼운', '두툼한', '볼륨감'];
+
 /** "두껍지 않은" 같은 표현 → 두꺼운 패딩만 뺀다 (경량패딩은 남김) */
 export const NOT_THICK_WORDS = ['두껍지 않', '안 두꺼', '안두꺼', '너무 두껍', '얇은', '가벼운'];
 export const THICK_SUBCATEGORIES = ['패딩', '롱패딩'];

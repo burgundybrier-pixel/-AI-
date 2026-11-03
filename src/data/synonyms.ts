@@ -30,6 +30,8 @@ export const ITEM_TERMS: ItemTerm[] = [
   { words: ['셔츠 재킷', '셔츠재킷', '셔츠 자켓', '셔츠자켓', '오버셔츠', '셔켓'], category: 'outer', subCategory: '셔츠 재킷' },
   { words: ['데님 재킷', '데님 자켓', '청자켓', '청재킷', '트러커'], category: 'outer', subCategory: '데님 재킷' },
   { words: ['바람막이', '윈드브레이커', '아노락'], category: 'outer', subCategory: '바람막이' },
+  { words: ['블레이저', '정장 재킷', '정장 자켓', '수트 재킷'], category: 'outer', subCategory: '블레이저' },
+  { words: ['야상', '피쉬테일', 'm-65', '필드 재킷', '필드 자켓'], category: 'outer', subCategory: '야상' },
   { words: ['외투', '아우터', '점퍼', '재킷', '자켓', '겉옷'], category: 'outer' },
 
   { words: ['후드티', '후디', '후드 티', '후드티셔츠'], category: 'top', subCategory: '후드티' },
@@ -41,6 +43,7 @@ export const ITEM_TERMS: ItemTerm[] = [
   { words: ['티셔츠'], category: 'top', subCategory: '티셔츠' },
   { words: ['셔츠', '남방', '옥스포드'], category: 'top', subCategory: '셔츠' },
   { words: ['가디건', '카디건'], category: 'top', subCategory: '가디건' },
+  { words: ['니트 베스트', '베스트', '니트 조끼', '조끼'], category: 'top', subCategory: '베스트' },
   { words: ['상의', '윗옷'], category: 'top' },
 
   { words: ['와이드 팬츠', '와이드팬츠', '통바지', '헐렁한 바지', '넓은 바지'], category: 'bottom', subCategory: '와이드 팬츠' },
@@ -49,12 +52,16 @@ export const ITEM_TERMS: ItemTerm[] = [
   { words: ['카고 팬츠', '카고팬츠', '카고', '건빵바지'], category: 'bottom', subCategory: '카고 팬츠' },
   { words: ['조거 팬츠', '조거팬츠', '조거', '트레이닝 바지', '츄리닝'], category: 'bottom', subCategory: '조거 팬츠' },
   { words: ['치노 팬츠', '치노팬츠', '치노', '면바지'], category: 'bottom', subCategory: '치노 팬츠' },
+  { words: ['반바지', '쇼츠', '숏팬츠', '숏 팬츠', '하프 팬츠'], category: 'bottom', subCategory: '반바지' },
+  { words: ['스커트', '치마', '롱스커트'], category: 'bottom', subCategory: '스커트' },
   { words: ['바지', '팬츠', '하의'], category: 'bottom' },
 
   { words: ['스니커즈', '운동화'], category: 'shoes', subCategory: '스니커즈' },
   { words: ['부츠', '첼시'], category: 'shoes', subCategory: '부츠' },
   { words: ['로퍼', '구두'], category: 'shoes', subCategory: '로퍼' },
   { words: ['러닝화', '런닝화', '조깅화'], category: 'shoes', subCategory: '러닝화' },
+  { words: ['샌들', '슬리퍼', '쪼리', '슬라이드'], category: 'shoes', subCategory: '샌들' },
+  { words: ['워커'], category: 'shoes', subCategory: '부츠' },
   { words: ['신발'], category: 'shoes' },
 ];
 

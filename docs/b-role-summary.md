@@ -7,7 +7,7 @@
 | 단계 | 산출물 | 커밋 |
 |---|---|---|
 | 원본 해부 | `plan.md` + `musinsa-plan-images/` 14장 | `d70a70c` |
-| React + Vite + TS 이전, 공유 타입, 상품 73개 | `src/types`, `src/data/products.ts`, 화면 4개 | `ebdb3e2` |
+| React + Vite + TS 이전, 공유 타입, 상품 122개 | `src/types`, `src/data/products.ts`, 화면 4개 | `ebdb3e2` |
 | 챗봇 로직 + 테스트 | `src/services/*`, `src/data/synonyms.ts`, `fashionTerms.ts` | `5219af8` |
 | 챗봇 화면 | `src/hooks/useChat.tsx`, `src/components/chat/*`, `pages/ChatPage.tsx` | `2e92949` |
 | 랭킹·찜 목록 | `pages/RankingPage.tsx`, `WishlistPage.tsx` | `e8c57e3` |
@@ -50,7 +50,7 @@
 
 ## 5. 데이터
 
-- 무신사 공개 검색 결과에서 상품 73개 (상품명·브랜드·가격·이미지·후기 수, 10/28 기준)
+- 무신사 공개 검색 결과에서 상품 122개 (상품명·브랜드·가격·이미지·후기 수, 10/28 기준)
 - 스타일·계절·핏·착용 상황·키워드 태그는 직접 부여, 색상은 썸네일 기준
 - 조건 조합마다 3~4개가 걸리도록 분포 설계 (T01 검정 후드티 3개, 발표 흐름 "더 스트릿하게" 3개 …)
 - 인기순은 후기 수로 만든 데모 점수. 화면에 "데모 인기도 기준" 표시

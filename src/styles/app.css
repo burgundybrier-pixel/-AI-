@@ -104,3 +104,35 @@ form.search-box button {
   font-size: 20px;
   margin-bottom: 8px;
 }
+
+
+/* Keep banner copy inside the colored panel at all phone widths.
+
+/* Keep banner copy inside the colored panel at all phone widths. */
+.hero-banner div {
+  left: clamp(16px, 5.8vw, 25px);
+  right: 56%;
+  top: 36px;
+  bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-banner strong {
+  font-size: clamp(24px, 7vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.06em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.hero-banner p {
+  margin: auto 0 4px;
+  font-size: clamp(17px, 4.7vw, 22px);
+  line-height: 1.2;
+  word-break: keep-all;
+}
+.hero-banner small {
+  font-size: clamp(11px, 3.1vw, 14px);
+  line-height: 1.4;
+  word-break: keep-all;
+}

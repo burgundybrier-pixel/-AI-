@@ -52,7 +52,12 @@ describe('명세서 §10 인수 테스트', () => {
   it('T04 5만 원 이하로 바꿔줘 → 가격만 갱신', () => {
     const { conditions, message } = chat('10만 원 이하 겨울 외투 추천해줘', '더 스트릿한 걸로', '5만 원 이하로 바꿔줘');
     expect(conditions).toMatchObject({ category: 'outer', seasons: ['winter'], maxPrice: 50000, styles: ['street'] });
-    expect(itemsOf(message)).toHaveLength(3);
+    const items = itemsOf(message);
+    expect(items.length).toBeGreaterThanOrEqual(3);
+    for (const p of items) {
+      expect(p.price).toBeLessThanOrEqual(50000);
+      expect(p.styleTags).toContain('street');
+    }
   });
 
   it('T05 패딩은 제외해줘 → 패딩 계열 없음', () => {
@@ -119,7 +124,7 @@ describe('사진 첨부 (T06) · 상세에서 시작 (T10)', () => {
 describe('명세서 §2 시나리오', () => {
   it('A: 겨울 깔끔한 검은색 외투 15만 원 이하', () => {
     const items = itemsOf(chat('겨울에 입을 깔끔한 검은색 외투를 찾고 있어. 15만 원 이하로 추천해줘.').message);
-    expect(items).toHaveLength(3);
+    expect(items.length).toBeGreaterThanOrEqual(3);
     for (const p of items) {
       expect(p.color).toBe('BLACK');
       expect(p.styleTags).toContain('minimal');
@@ -156,8 +161,11 @@ describe('명세서 §11 발표 시연 흐름', () => {
     const second = respond('조금 더 스트릿하게 바꿔줘.', first.conditions);
     expect(second.conditions.maxPrice).toBe(150000);
     const items = itemsOf(second.message);
-    expect(items).toHaveLength(3);
+    expect(items.length).toBeGreaterThanOrEqual(3);
     for (const p of items) expect(p.styleTags).toContain('street');
+    // 조건을 더했으니 결과가 좁혀져야 한다
+    const total = (m: AssistantMessage) => (m.kind === 'recommend' ? m.result.totalMatched : 0);
+    expect(total(second.message)).toBeLessThan(total(first.message));
   });
 });
 

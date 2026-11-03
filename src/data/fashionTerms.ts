@@ -113,6 +113,11 @@ export const FASHION_TERMS: Record<string, TermExplanation> = {
     description: '달리기용으로 쿠션을 강화한 운동화예요. 요즘은 메쉬와 굵은 밑창의 디자인 때문에 일상화로도 많이 신어요.',
     relatedKeywords: ['조깅화', '고프코어', '쿠션 운동화'],
   },
+  '무스탕': {
+    term: '무스탕 (시어링 재킷)',
+    description: '양털이 붙은 가죽, 또는 그 느낌을 낸 인조 소재로 만든 겨울 재킷이에요. 영어로는 시어링(shearling) 재킷이라고 해요.',
+    relatedKeywords: ['시어링 재킷', '퍼 코트', '양털 자켓'],
+  },
   '블레이저': {
     term: '블레이저',
     description: '정장 재킷처럼 칼라와 단추가 있지만 바지와 세트가 아닌 단독 재킷이에요. 청바지나 슬랙스 어디에나 걸치면 단정해 보여요.',

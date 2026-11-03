@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Header } from '../components/layout/Header';
 import { Icon } from '../components/common/Icon';
 import { getProductById } from '../data/products';
@@ -48,6 +48,7 @@ export function ProductDetailPage() {
           </div>
           <p className="detail-desc">{p.description}</p>
           <p className="detail-material">소재: {p.material}</p>
+          <Link className="outfit-entry outfit-detail-entry" to={`/outfit?product=${encodeURIComponent(p.id)}`}>✦ 이 상품으로 코디하기 <span aria-hidden>→</span></Link>
         </section>
       </main>
       <div className="purchase">

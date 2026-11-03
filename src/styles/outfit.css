@@ -1,0 +1,96 @@
+.outfit-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  color: #151719;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+.outfit-chat-entry { margin: 10px 8px 0; background: #fff; }
+.outfit-detail-entry { margin-top: 24px; background: #151719; color: #fff; justify-content: space-between; }
+.outfit-page { background: #fafaf9; min-height: 100vh; }
+.outfit-page .page-title { font-size: 17px; }
+.outfit-main { padding: 26px 18px 24px; }
+.outfit-intro { margin-bottom: 22px; }
+.outfit-eyebrow { color: #636b58; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
+.outfit-intro h2 { font-size: 25px; line-height: 1.5; letter-spacing: -1px; margin: 10px 0 8px; }
+.outfit-intro p { color: #666; font-size: 12px; line-height: 1.7; margin: 0; }
+.outfit-base { display: flex; gap: 14px; padding: 14px; background: #f0f1ec; border: 1px solid #e0e3d9; border-radius: 12px; margin-bottom: 28px; }
+.outfit-base > a { flex: 0 0 88px; display: block; }
+.outfit-base img { width: 88px; height: 112px; border-radius: 5px; object-fit: cover; background: #e6e6e3; }
+.outfit-base > div { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.outfit-lock { padding: 3px 7px; background: #fff; color: #4b583c; border-radius: 4px; font-size: 10px; font-weight: 700; margin-bottom: 8px; }
+.outfit-base strong { font-size: 11px; }
+.outfit-base p { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; margin: 4px 0 6px; }
+.outfit-base b { font-size: 15px; margin-top: auto; }
+.outfit-form { padding: 20px 16px; border: 1px solid #e7e7e3; border-radius: 12px; background: #fff; }
+.outfit-section-title { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.outfit-section-title h3 { font-size: 17px; letter-spacing: -.5px; margin: 0; }
+.outfit-section-title > span { color: #707466; font-size: 10px; }
+.outfit-form > label, .outfit-form legend { display: block; font-size: 13px; font-weight: 700; margin: 20px 0 10px; padding: 0; }
+.outfit-budget-input { display: flex; align-items: center; gap: 8px; border: 1px solid #d9dcd3; border-radius: 7px; padding: 0 12px; }
+.outfit-budget-input input { min-width: 0; width: 100%; border: 0; background: transparent; font: inherit; font-size: 21px; font-weight: 700; height: 50px; }
+.outfit-budget-input > span { color: #777; font-size: 14px; }
+.outfit-hint { font-size: 11px; color: #777; line-height: 1.6; margin: 8px 0; }
+.outfit-error { font-size: 12px; line-height: 1.7; color: #b6293a; }
+.outfit-presets { display: flex; gap: 6px; margin-top: 12px; }
+.outfit-presets button { flex: 1; min-width: 0; padding: 10px 3px; border: 1px solid #e1e1dc; border-radius: 6px; font-size: 11px; min-height: 40px; }
+.outfit-presets button[aria-pressed="true"] { border-color: #1c2119; background: #f1f2ed; font-weight: 700; }
+.outfit-form fieldset { padding: 0; border: 0; margin: 0; min-width: 0; }
+.outfit-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.outfit-options label { position: relative; cursor: pointer; }
+.outfit-options input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.outfit-options span { display: block; padding: 11px 13px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; }
+.outfit-options input:checked + span { color: #fff; background: #252922; border-color: #252922; }
+.outfit-options input:focus-visible + span { outline: 3px solid #456caa; outline-offset: 3px; }
+.outfit-form select { width: 100%; min-height: 46px; border: 1px solid #ddd; border-radius: 7px; background: #fff; color: #222; padding: 0 12px; font: inherit; font-size: 16px; }
+.outfit-submit { width: 100%; min-height: 50px; margin-top: 22px; border-radius: 7px; background: #181c16; color: #fff; font-size: 15px; font-weight: 700; }
+.outfit-page button:focus-visible, .outfit-page a:focus-visible, .outfit-page select:focus-visible, .outfit-entry:focus-visible { outline: 3px solid #456caa; outline-offset: 3px; }
+.outfit-budget-input:focus-within { outline: 2px solid #456caa; outline-offset: 2px; }
+.outfit-budget-input input:focus { outline: none; }
+.outfit-announcement { margin: 16px 0; color: #4b583c; font-size: 12px; line-height: 1.7; }
+.outfit-announcement:empty { margin: 0; }
+.outfit-results { margin-top: 30px; }
+.outfit-results > .outfit-section-title { margin-bottom: 9px; }
+.outfit-result-context { font-size: 11px; color: #777; margin: 0 0 16px; }
+.outfit-stale { background: #fff2dd; color: #7b4e13; font-size: 12px; line-height: 1.8; padding: 12px; border-radius: 7px; }
+.outfit-card { margin: 0 0 22px; border: 1px solid #e2e4dd; border-radius: 12px; background: #fff; overflow: hidden; }
+.outfit-card-head { display: flex; align-items: center; gap: 8px; padding: 17px 14px; border-bottom: 1px solid #edeee9; }
+.outfit-number { font-size: 16px; color: #69765b; font-weight: 800; }
+.outfit-card-head h3 { font-size: 14px; margin: 0; }
+.outfit-card-head > span:last-child { margin-left: auto; color: #777; font-size: 10px; }
+.outfit-items { list-style: none; margin: 0; padding: 0 14px; }
+.outfit-item { padding: 14px 0; border-bottom: 1px solid #eee; }
+.outfit-item:last-child { border-bottom: 0; }
+.outfit-item-link { display: flex; gap: 12px; color: inherit; text-decoration: none; }
+.outfit-item-link img { width: 76px; height: 96px; flex-shrink: 0; object-fit: cover; background: #f1f1ef; border-radius: 5px; }
+.outfit-item-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.outfit-item-category { font-size: 10px; color: #777; line-height: 1.6; }
+.outfit-item-category > span { margin-left: 4px; font-size: 9px; color: #556447; font-weight: 700; }
+.outfit-item-copy > strong { font-size: 11px; }
+.outfit-item-name { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.outfit-item-copy > b { font-size: 14px; margin-top: auto; }
+.outfit-replace { display: flex; justify-content: space-between; align-items: center; margin: 10px 0 0 auto; padding: 8px 10px; min-height: 40px; border: 1px solid #deded8; border-radius: 5px; font-size: 11px; gap: 12px; }
+.outfit-replace > span { font-size: 18px; }
+.outfit-replace:disabled { opacity: .45; cursor: default; }
+.outfit-reasons { background: #f5f6f1; padding: 12px 14px; }
+.outfit-reasons p { font-size: 11px; line-height: 1.8; color: #5e6656; margin: 3px 0; overflow-wrap: anywhere; }
+.outfit-total { padding: 17px 14px; }
+.outfit-total > div { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 7px; }
+.outfit-total span { font-size: 12px; font-weight: 700; }
+.outfit-total strong { font-size: 22px; letter-spacing: -.7px; }
+.outfit-total p { font-size: 10px; color: #777; margin: 8px 0 0; text-align: right; }
+.outfit-total p b { color: #526542; }
+.outfit-empty { text-align: center; padding: 28px 16px; background: #fff; border-radius: 10px; }
+.outfit-empty h2, .outfit-empty h4 { font-size: 16px; line-height: 1.7; margin: 0 0 10px; }
+.outfit-empty p { font-size: 12px; line-height: 1.8; color: #777; }
+.outfit-empty a, .outfit-empty button { display: block; margin: 12px auto 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; color: #222; text-decoration: none; }
+.outfit-empty .outfit-text-button { border: 0; text-decoration: underline; }
+.outfit-disclaimer { font-size: 10px; color: #777; line-height: 1.8; text-align: center; margin: 24px 0 0; }

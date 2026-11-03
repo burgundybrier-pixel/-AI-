@@ -7,6 +7,7 @@ import { ChatProvider } from './hooks/useChat';
 import './styles/style.css';
 import './styles/app.css';
 import './styles/chat.css';
+import './styles/outfit.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

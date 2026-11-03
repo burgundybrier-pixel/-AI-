@@ -6,6 +6,7 @@ import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ChatPage } from './pages/ChatPage';
 import { RankingPage } from './pages/RankingPage';
 import { WishlistPage } from './pages/WishlistPage';
+import { OutfitPage } from './pages/OutfitPage';
 
 /** 화면이 바뀌면 맨 위부터 보이게 (A 코드의 window.scrollTo(0,0)) */
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export function App() {
         <Route path="/ranking" element={<RankingPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/ai" element={<ChatPage />} />
+        <Route path="/outfit" element={<OutfitPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>

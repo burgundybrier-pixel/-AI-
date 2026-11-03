@@ -1,6 +1,7 @@
 import type { ChatMessage, ConditionPatch } from '../../types/chat';
 import { getProductById } from '../../data/products';
 import { ProductCard } from '../product/ProductCard';
+import { Link } from 'react-router-dom';
 
 interface ChatBubbleProps {
   message: ChatMessage;
@@ -51,6 +52,7 @@ export function ChatBubble({ message: m, onSuggest, onPatch }: ChatBubbleProps) 
                 <div className="msg-product" key={item.productId}>
                   <ProductCard product={p} />
                   <div className="reason-chips">{item.reasons.map((r) => <span key={r}>{r}</span>)}</div>
+                  <Link className="outfit-entry outfit-chat-entry" to={`/outfit?product=${encodeURIComponent(p.id)}`}>✦ 이 상품으로 코디하기</Link>
                 </div>
               );
             })}

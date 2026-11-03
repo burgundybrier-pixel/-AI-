@@ -202,6 +202,19 @@ describe('조건 패치', () => {
     expect(patch.set?.seasons).toBeUndefined();
   });
 
+  it('"셔츠"로 찾으면 티셔츠는 나오지 않고, "티셔츠"는 긴팔·반팔 모두', () => {
+    for (const p of itemsOf(chat('셔츠 보여줘').message)) expect(p.subCategory).toBe('셔츠');
+    const tees = itemsOf(chat('티셔츠 보여줘').message).map((p) => p.subCategory);
+    expect(tees).toContain('긴팔 티셔츠');
+    expect(tees).toContain('반팔 티셔츠');
+  });
+
+  it('새로 추가한 종류도 동의어로 찾는다', () => {
+    expect(chat('츄리닝 바지').conditions.subCategory).toBe('조거 팬츠');
+    expect(chat('청자켓 있어?').conditions.subCategory).toBe('데님 재킷');
+    expect(chat('봄에 입을 바바리').conditions).toMatchObject({ subCategory: '트렌치코트', seasons: ['spring'] });
+  });
+
   it('제외 조건에 빈 목록을 남기지 않는다', () => {
     expect(chat('패딩은 빼줘').conditions.exclude).toEqual({ subCategories: ['패딩', '롱패딩', '경량패딩'] });
   });

@@ -1,17 +1,18 @@
 import type { Product } from '../types/product';
 import type { SearchConditions } from '../types/chat';
+import { SUBCATEGORY_FAMILY } from '../data/synonyms';
 
 const overlaps = <T>(want: T[] | undefined, have: T[]) => !want?.length || want.some((x) => have.includes(x));
 
 /**
  * 조건을 모두 만족하는가 (명세서 §4.2의 "필터링" 단계).
- * - subCategory는 포함 관계: '패딩'을 찾으면 '롱패딩', '경량패딩'도 나온다
+ * - subCategory는 SUBCATEGORY_FAMILY 묶음으로: '패딩'을 찾으면 '롱패딩', '경량패딩'도 나온다
  * - 색·스타일·계절·상황은 여러 개 중 하나만 맞으면 된다 ("검정이나 네이비")
  * - 제외 조건의 subCategory는 정확히 같은 것만 뺀다 ("두껍지 않은" → 패딩·롱패딩만 빼고 경량패딩은 남김)
  */
 export function matchesConditions(p: Product, c: SearchConditions): boolean {
   if (c.category && p.category !== c.category) return false;
-  if (c.subCategory && !p.subCategory.includes(c.subCategory)) return false;
+  if (c.subCategory && !(SUBCATEGORY_FAMILY[c.subCategory] ?? [c.subCategory]).includes(p.subCategory)) return false;
   if (c.colors?.length && !c.colors.includes(p.color)) return false;
   if (!overlaps(c.styles, p.styleTags)) return false;
   if (!overlaps(c.seasons, p.seasons)) return false;

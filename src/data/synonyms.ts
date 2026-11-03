@@ -26,20 +26,35 @@ export const ITEM_TERMS: ItemTerm[] = [
   { words: ['바시티', '야구점퍼', '야구 점퍼', '과잠', '스타디움'], category: 'outer', subCategory: '바시티 재킷' },
   { words: ['레더', '가죽'], category: 'outer', subCategory: '레더 재킷' },
   { words: ['플리스', '후리스', '뽀글이'], category: 'outer', subCategory: '플리스' },
+  { words: ['트렌치코트', '트렌치 코트', '트렌치', '바바리'], category: 'outer', subCategory: '트렌치코트' },
+  { words: ['셔츠 재킷', '셔츠재킷', '셔츠 자켓', '셔츠자켓', '오버셔츠', '셔켓'], category: 'outer', subCategory: '셔츠 재킷' },
+  { words: ['데님 재킷', '데님 자켓', '청자켓', '청재킷', '트러커'], category: 'outer', subCategory: '데님 재킷' },
+  { words: ['바람막이', '윈드브레이커', '아노락'], category: 'outer', subCategory: '바람막이' },
   { words: ['외투', '아우터', '점퍼', '재킷', '자켓', '겉옷'], category: 'outer' },
 
   { words: ['후드티', '후디', '후드 티', '후드티셔츠'], category: 'top', subCategory: '후드티' },
   { words: ['니트', '스웨터'], category: 'top', subCategory: '니트' },
   { words: ['맨투맨', '스웻셔츠', '스웨트셔츠'], category: 'top', subCategory: '맨투맨' },
+  { words: ['긴팔 티셔츠', '긴팔티', '긴팔 티', '롱슬리브'], category: 'top', subCategory: '긴팔 티셔츠' },
+  { words: ['반팔 티셔츠', '반팔티', '반팔', '반소매'], category: 'top', subCategory: '반팔 티셔츠' },
+  // '티셔츠'만 말하면 긴팔·반팔 둘 다 (subCategory는 포함 관계로 찾는다)
+  { words: ['티셔츠'], category: 'top', subCategory: '티셔츠' },
+  { words: ['셔츠', '남방', '옥스포드'], category: 'top', subCategory: '셔츠' },
+  { words: ['가디건', '카디건'], category: 'top', subCategory: '가디건' },
   { words: ['상의', '윗옷'], category: 'top' },
 
   { words: ['와이드 팬츠', '와이드팬츠', '통바지', '헐렁한 바지', '넓은 바지'], category: 'bottom', subCategory: '와이드 팬츠' },
   { words: ['슬랙스', '정장바지', '정장 바지'], category: 'bottom', subCategory: '슬랙스' },
   { words: ['청바지', '데님'], category: 'bottom', subCategory: '청바지' },
+  { words: ['카고 팬츠', '카고팬츠', '카고', '건빵바지'], category: 'bottom', subCategory: '카고 팬츠' },
+  { words: ['조거 팬츠', '조거팬츠', '조거', '트레이닝 바지', '츄리닝'], category: 'bottom', subCategory: '조거 팬츠' },
+  { words: ['치노 팬츠', '치노팬츠', '치노', '면바지'], category: 'bottom', subCategory: '치노 팬츠' },
   { words: ['바지', '팬츠', '하의'], category: 'bottom' },
 
   { words: ['스니커즈', '운동화'], category: 'shoes', subCategory: '스니커즈' },
   { words: ['부츠', '첼시'], category: 'shoes', subCategory: '부츠' },
+  { words: ['로퍼', '구두'], category: 'shoes', subCategory: '로퍼' },
+  { words: ['러닝화', '런닝화', '조깅화'], category: 'shoes', subCategory: '러닝화' },
   { words: ['신발'], category: 'shoes' },
 ];
 
@@ -91,6 +106,17 @@ export const FIT_TERMS: [Fit, string[]][] = [
   ['wide', ['와이드']],
   ['regular', ['레귤러', '정핏', '기본핏']],
 ];
+
+/**
+ * 세부 종류로 찾을 때 함께 걸리는 종류. 여기 없으면 이름이 정확히 같은 것만 찾는다.
+ * (글자 포함으로 찾으면 '셔츠'에 '반팔 티셔츠'가 걸리는 문제가 생김)
+ */
+export const SUBCATEGORY_FAMILY: Record<string, string[]> = {
+  '패딩': ['패딩', '롱패딩', '경량패딩'],
+  '티셔츠': ['긴팔 티셔츠', '반팔 티셔츠'],
+  '코트': ['코트', '트렌치코트'],
+  '블루종': ['블루종', 'MA-1'],
+};
 
 /** "빵빵한" 같은 표현 → 얇은 경량패딩은 뺀다 */
 export const THICK_WORDS = ['빵빵한', '두꺼운', '두툼한', '볼륨감'];

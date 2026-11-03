@@ -73,9 +73,11 @@ export function recommendSimilar(products: Product[], base: Product, c: SearchCo
         ...(sameColor ? [COLOR_LABEL[p.color]] : []),
         ...(p.price < base.price ? [`${manwon(base.price - p.price)} 저렴`] : []),
       ];
-      return { p, item: { productId: p.id, score, reasons: reasons.slice(0, 4) } };
+      // 같은 종류이거나 스타일이 하나라도 겹쳐야 "비슷한 옷" (색·인기도만 같은 건 제외)
+      const related = sameSub || sharedStyles.length > 0;
+      return { p, related, item: { productId: p.id, score, reasons: reasons.slice(0, 4) } };
     })
-    .filter(({ item }) => item.score >= 3);
+    .filter(({ related, item }) => related && item.score >= 3);
 
   const byId = new Map(products.map((p) => [p.id, p]));
   const items = sortItems(scored.map((x) => x.item), byId, c);

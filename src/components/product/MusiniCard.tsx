@@ -6,8 +6,7 @@ export function MusiniCard({ query }: { query?: string }) {
   const navigate = useNavigate();
   return (
     <section className="musini-card">
-      <img src="/assets/musini.png" alt="무시니 AI 쇼핑 도우미"
-        onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} />
+      <img src="/assets/musini-v2.png" alt="무시니 AI 쇼핑 도우미" />
       <div className="musini-copy">
         <strong>무시니에게 물어보세요</strong>
         <span>원하는 스타일을 자연어로 찾아드려요</span>

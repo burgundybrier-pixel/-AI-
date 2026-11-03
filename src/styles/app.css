@@ -39,6 +39,14 @@ form.search-box button {
   color: #111;
   font-size: 16px;
 }
+.empty-mascot {
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 6px;
+}
+/* 캐릭터 오른쪽 위 반짝임이 카드 밖으로 잘리지 않게 */
+.musini-card > img { right: 4px; top: -8px; width: 180px; height: 180px; }
 .empty-result .musini-card {
   text-align: left;
   margin-top: 24px;

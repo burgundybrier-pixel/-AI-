@@ -63,6 +63,7 @@ function SearchResults({ q }: { q: string }) {
           <section className="grid">{results.map((p) => <ProductCard key={p.id} product={p} />)}</section>
         ) : (
           <div className="empty-result">
+            <img className="empty-mascot" src="/assets/musini-v2.png" alt="" />
             <p><strong>검색 결과가 없습니다.</strong><br />다른 검색어를 입력하거나, 무시니에게 문장으로 물어보세요.</p>
             <MusiniCard query={q} />
           </div>

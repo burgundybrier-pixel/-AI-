@@ -214,3 +214,6 @@
 .attach-samples { display: flex; gap: 8px; }
 .attach-samples button { flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: #555; }
 .attach-samples img { width: 100%; height: 90px; object-fit: cover; border-radius: 8px; }
+
+/* Approved mascot: frame the face without changing the source artwork. */
+.avatar img { inset: auto; width: 220%; height: 220%; max-width: none; left: -60%; top: -64%; object-fit: contain; }

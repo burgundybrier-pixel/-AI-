@@ -21,6 +21,7 @@ export function WishlistPage() {
           <section className="grid wishlist-grid">{liked.map((p) => <ProductCard key={p.id} product={p} />)}</section>
         ) : (
           <div className="empty-result">
+            <img className="empty-mascot" src="/assets/musini-v2.png" alt="" />
             <p><strong>아직 찜한 상품이 없어요.</strong><br />마음에 드는 옷의 하트를 눌러 모아 보세요.</p>
             <div className="empty-actions">
               <button onClick={() => navigate('/ranking')}>랭킹 구경하기</button>

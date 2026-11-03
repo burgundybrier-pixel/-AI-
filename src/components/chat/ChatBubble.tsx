@@ -11,8 +11,7 @@ interface ChatBubbleProps {
 export function MusiniAvatar() {
   return (
     <span className="avatar" aria-hidden>
-      <img src="/assets/musini.png" alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-      <i>✦</i>
+      <img src="/assets/musini-v2.png" alt="" />
     </span>
   );
 }
